@@ -8,12 +8,7 @@
     fetch('http://localhost:3000/')  // manggil backend Express
       .then(res => res.json())
       .then(data => {
-          // const list = document.getElementById('list');
-          // data.forEach(s => {
-            //   const li = document.createElement('li');
-            //   li.textContent = `${s.nama} - ${s.kelas}`;
-            //   list.appendChild(li);
-            // });
+
         const json = data[0].pesan.jawaban
         const list = document.getElementById('list');
         json.forEach(s => {
