@@ -1,10 +1,12 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const sim = require(`cors`)
 const baca = require('body-parser')
 const db = require('./koneksi.js')
 const templet = require('./respon.js')
 const Err = require(`./resErr.js`)
+app.use(sim())
 app.use(baca.json())
 
 app.get('/', (req, res) => {
