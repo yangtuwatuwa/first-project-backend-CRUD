@@ -9,9 +9,10 @@ const Err = require(`./resErr.js`)
 app.use(sim())
 app.use(baca.json())
 
+
 app.get('/', (req, res) => {
-  db.query("SELECT * FROM nama ",(err, rslt) => {
-    if (err) throw err
+  db.query("SELECT * FROM NamaSiswa ",(err, rslt) => {
+    if (err) return Err(505 ,err , "gagal" , res)
    templet(200,rslt,"datang dengan baik", res )
  
   }
@@ -19,22 +20,21 @@ app.get('/', (req, res) => {
 ) 
 app.get('/:kelas', (req, res) => {
   let kelas = req.params.kelas
-  let sql =`SELECT * FROM nama WHERE kelas = '${kelas}' ` 
+  let sql =`SELECT * FROM NamaSiswa WHERE kelas = '${kelas}' ` 
   db.query(sql,(err, rslt) => {
     if (err) return Err(505 , err , "gagal" , res)
     templet(200, rslt, "ada nihhh yg lu cari", res)
     
-  //  templet(200,rslt,"datang dengan baik", res )
-    // templet(200, slt, "KEAMBIL SEMUA BRE",res) 
+ 
   }
 )}
 ) 
 
   // ('Hello World!')
 app.post('/iye',(req,res) =>{
-    let {NIS , nama, kelas, alamat} = req.body;
-    let sql = 'INSERT INTO nama (id , NIS , nama , kelas , alamat) VALUES (NULL , ? , ? , ? , ?)'
-    db.query(sql,[NIS,nama,kelas, alamat],(err, rslt)=>{
+    let {NIS , Nama, Kelas, Alamat} = req.body;
+    let sql = 'INSERT INTO NamaSiswa (ID , NIS , Nama , kelas , Alamat) VALUES (NULL , ? , ? , ? , ?)'
+    db.query(sql,[NIS ,Nama , Kelas, Alamat],(err, rslt)=>{
       if (err) return Err(500, err, "gak masuk ke db", res)
 
       templet(200, rslt, "masukkk", res)
@@ -43,11 +43,11 @@ app.post('/iye',(req,res) =>{
 
 
 
-app.put('/apdet/:id',(req,res) =>{
-    let {id} = req.params;
-    let { kelas, nama} = req.body;
-    let sql = `UPDATE nama SET nama = ? , kelas = ? WHERE id = ?`
-    db.query(sql,[nama , kelas , id ],(err, rslt)=>{
+app.put('/apdet/:ID',(req,res) =>{
+    let {ID} = req.params;
+    let { kelas, Nama} = req.body;
+    let sql = `UPDATE NamaSiswa SET Nama = ? , kelas = ? WHERE ID = ?`
+    db.query(sql,[Nama , kelas , ID ],(err, rslt)=>{
       if (err) return Err(500, err, "error", res)
 
       templet(200, rslt, "masukkk", res)
@@ -56,16 +56,14 @@ app.put('/apdet/:id',(req,res) =>{
 
 app.delete('/delete/:NIS',(req, res) =>{
     let {NIS} = req.params;
-    let sql = `DELETE FROM nama WHERE NIS = ?`
+    let sql = `DELETE FROM NamaSiswa WHERE NIS = ?`
     db.query(sql , NIS , (err , rslt)=>{
     if (err) return  Err(500, err ,  "error" , res)
       templet(200 , rslt , "berhasil delete dengan sempurna" , res)
       
     })
 })
-// app.get('/iye',()=>{
-//   templet()
-// })
+
 app.listen(port, () => {
   console.log(`nih halaman rootingan: http://localhost:${port}`)
   console.log('masuk sini ke db: http://localhost/phpmyadmin/index.php?route=/&route=%2F');
