@@ -1,0 +1,28 @@
+{
+  "name": "first-project-backend-crud",
+  "version": "1.0.0",
+  "description": "<h1>MY FIRST PROJECT BACKEND WITH CRUD</h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangtuwatuwa/first-project-backend-CRUD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/yangtuwatuwa/first-project-backend-CRUD/issues"
+  },
+  "homepage": "https://github.com/yangtuwatuwa/first-project-backend-CRUD#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "my-sql": "^1.2.15"
+  }
+}

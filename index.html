@@ -4,20 +4,8 @@
   <h1>Data Siswa</h1>
   <ul id="list"></ul>
 
-  <script>
-    fetch('http://localhost:3000/') 
-      .then(res => res.json())
-      .then(data => {
-
-        const json = data[0].pesan.jawaban
-        const list = document.getElementById('list');
-        json.forEach(s => {
-            let li = document.createElement('li')
-            li.textContent = ` ${s.alamat}`
-            list.appendChild(li);
-        });
-      })
-      .catch(err => console.error(err));
+  <script src="frontend.js">
+   
   </script>
 </body>
 </html>
