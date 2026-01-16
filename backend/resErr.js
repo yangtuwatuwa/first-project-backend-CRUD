@@ -3,6 +3,7 @@ const responErr = (statsuCode, data, pesan, res) => {
     
     res.json([
         {
+            alert: false,
             statsuCode: statsuCode,
             pesan :{
                 codeSql: data.code,
