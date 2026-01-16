@@ -3,3 +3,4 @@
 <P>KEKURANGANNYA BANYAK. MASIH CRUD DASAR BANGET. UNTUK DATANYA LEMAH DI TEMBAK FIELD KOSONG. KARENA FOKUSNYA PADA BACKEND BUKAN PENGECHECKAN DI FRONTEND</P>
 
 <P>MWEHEHEHHEHEHEHE</P>
+<P>untuk db yang digunakan menggunakan mysql dari pc saya yang di jadikan server melalui ip private router rumah. makanya itu pw nya lemah banget wkwkwkwkwk</P>
