@@ -4,3 +4,4 @@
 
 <P>MWEHEHEHHEHEHEHE</P>
 <P>untuk db yang digunakan menggunakan mysql dari pc saya yang di jadikan server melalui ip private router rumah. makanya itu pw nya lemah banget wkwkwkwkwk</P>
+<p>untuk sekarang fiturnya nambah jadi bisa kirim email dan udh punya jwt yey</p>
