@@ -1,8 +1,8 @@
-const express = require('express')
-const gas = express.Router();
-const Err = require('../resErr')
-const templet = require('../respon')
-const db = require('../koneksi.js')
+import e from 'express';
+import Err from '../resErr.js'
+import templet from '../respon.js'
+import db from "../koneksi.js"
+const gas = e.Router();
 
 gas.delete('/delete/:NIS',(req, res) =>{
     let {NIS} = req.params;
@@ -14,5 +14,4 @@ gas.delete('/delete/:NIS',(req, res) =>{
     })
 })
 
-
-module.exports = gas
+export default gas

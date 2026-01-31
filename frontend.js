@@ -70,10 +70,54 @@ const halloDunia = async ()=> {
     }
 }
 
+
 const halloGibran = async ()=> {
     const namaOrang = document.getElementById("nama").value
     const kelasOrang = document.getElementById("kelas").value
+if (namaOrang) {
+    alert("ya filed anda terisi")
+} else{
+    alert("gak field anda kosong")
+}
+    try {
+        const res = await fetch("http://localhost:3000/masukk",{
+            method:"POST",
+            headers:{
+                "Content-Type":'application/json'
+            },
+            body: JSON.stringify({
+                NAMA:namaOrang,
+                KELAS:kelasOrang
+            })
+        } )
 
+        const hasil = await res.json();
+        const lahh =hasil[0].pesan.jawaban[0] 
+        console.log(lahh);
+        if (lahh) {
+            alert("MASUK nih login lu")
+              if (lahh.Jabatan == "KETUA KELAS") {
+                alert("anda adalah KETUA KELAS ")
+            } else{
+                alert("anda bukan ketua kelas jir")
+            }
+        } else{
+            alert("gak ada kocakkk")
+        }
+    } catch (error) {
+        console.log("gagal le",error);
+        
+    }
+}   
+
+const halloGanjar = async ()=> {
+    const namaOrang = document.getElementById("nama").value
+    const kelasOrang = document.getElementById("kelas").value
+if (namaOrang) {
+    alert("ya filed anda terisi")
+} else{
+    alert("gak field anda kosong")
+}
     try {
         const res = await fetch("http://localhost:3000/login",{
             method:"POST",
@@ -87,10 +131,16 @@ const halloGibran = async ()=> {
         } )
 
         const hasil = await res.json();
-        console.log(hasil);
-        alert("MASUK")
+        const lahh =hasil[0].pesan.jawaban[0] 
+        console.log(lahh.Jabatan);
+        if (lahh) {
+            alert("MASUK nih login lu")
+          
+        } else{
+            alert("gak ada kocakkk")
+        }
     } catch (error) {
         console.log("gagal le",error);
         
     }
-}
+}   

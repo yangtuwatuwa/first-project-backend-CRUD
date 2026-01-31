@@ -1,4 +1,4 @@
-const responErr = (statsuCode, data, pesan, res) => {
+const  responErr = (statsuCode, data, pesan, res) => {
 
     
     res.json([
@@ -15,4 +15,4 @@ const responErr = (statsuCode, data, pesan, res) => {
     ])
 }
 
-module.exports = responErr
+  export default responErr

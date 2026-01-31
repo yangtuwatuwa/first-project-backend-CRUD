@@ -1,10 +1,12 @@
-const sql = require(`mysql2`)
-const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../.env') }); 
-
-
-
+import sql from 'mysql2'
+import path from 'path'
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename); 
+dotenv.config({ path: path.join(__dirname, '../.env') }); 
 console.log("host:", process.env.host);
+
 
 const db = sql.createConnection({
     host :process.env.host,
@@ -18,4 +20,4 @@ db.connect((err) => {
     console.log("STATUS MU ADALAH :",hasil);
     
 });
-module.exports = db
+export default db

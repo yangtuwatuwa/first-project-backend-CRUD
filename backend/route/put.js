@@ -1,8 +1,10 @@
-const express = require('express')
-const gas = express.Router();
-const Err = require('../resErr')
-const templet = require('../respon')
-const db = require('../koneksi.js')
+import e from 'express';
+import Err from '../resErr.js'
+import templet from '../respon.js'
+import db from "../koneksi.js"
+import Mail from 'nodemailer/lib/mailer/index.js';
+const gas = e.Router();
+
 
 gas.put('/apdet/:ID',(req,res) =>{
     let {ID} = req.params;
@@ -15,6 +17,8 @@ gas.put('/apdet/:ID',(req,res) =>{
     })
 })
 
+gas.put('/emailgweh', () => {
+  let {sub, teks, email} = req.body
+})
 
-
-module.exports = gas
+export default gas

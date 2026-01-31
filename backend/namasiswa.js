@@ -11,5 +11,4 @@ const respon = (statsuCode, data, pesan, res) => {
         }    
     )
 }
-
-module.exports = respon
+export default respon
